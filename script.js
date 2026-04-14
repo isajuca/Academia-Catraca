@@ -160,23 +160,21 @@ async function consultStatus() {
         // ============================================
         // fetch é usado para fazer requisições HTTP (GET, POST, etc)
         // O await faz o JavaScript esperar a resposta da API
-        const response = await fetch('<API_ENDPOINT>', {
-            method: 'POST',           // Método HTTP (POST envia dados no corpo)
-            headers: {
-                'Content-Type': 'application/json', // Diz que estamos enviando JSON
-            },
-            body: JSON.stringify({ cpf: cleanCPF }) // Converte o objeto em JSON e envia
-        });
+        const response = await fetch('https://backup-weld.vercel.app/alunos/' + cleanCPF);
         
         // Converte a resposta (que vem em JSON) para um objeto JavaScript
+
         const data = await response.json();
+        console.log('Resposta completa da API:', data);
+        console.log('Status recebido:', data.status);
+        console.log('Tipo do status:', typeof data.status);
         
         // Verifica o status retornado pela API
         // Se for "ativo" mostra verde, senão mostra vermelho
         if (data.status === "ativo") {
             showResult('active', '✅ Aluno ATIVO na academia');
         } else {
-            showResult('blocked', '❌ Aluno BLOQUEADO na academia');
+            showResult('blocked', '❌ Aluno BLOQUEADO na academia. Procure a secretaria.');
         }
         
     } catch (error) {
