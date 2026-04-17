@@ -191,7 +191,15 @@ async function consultStatus() {
         
     } catch (error) {
         // Se ocorrer qualquer erro (rede, servidor fora, etc) cai aqui
-        showResult('error', 'Erro ao consultar. Tente novamente.');
+        // Mostra card de erro com template simples
+        welcomeMessage.textContent = '⚠️ Sistema temporariamente indisponível. Tente novamente em alguns minutos.';
+        welcomeMessage.className = 'text-2xl font-bold text-red-600'; // Muda para vermelho
+        welcomeCard.classList.remove('hidden');
+        // Após 5 segundos, esconde o card
+        setTimeout(() => {
+            welcomeCard.classList.add('hidden');
+            welcomeMessage.className = 'text-2xl font-bold text-green-600'; // Volta para verde
+        }, 5000);
     } finally {
         // Isso acontece SEMPRE, mesmo se der erro ou sucesso
         // Reabilita o botão e volta o texto original
