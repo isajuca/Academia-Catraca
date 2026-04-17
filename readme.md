@@ -58,13 +58,6 @@ Para alterar a URL da API, basta modificar a linha no arquivo `script.js`:
 ```javascript
 const response = await fetch('SUA_NOVA_URL_AQUI' + cleanCPF);
 ```
-
------
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](https://www.google.com/search?q=LICENSE) para mais detalhes.
-
 -----
 
 ## 🤝 Contato
