@@ -174,7 +174,7 @@ async function consultStatus() {
         if (data.status === "ativo") {
             showResult('active', '✅ Aluno ATIVO na academia');
         } else {
-            showResult('blocked', '❌ Aluno BLOQUEADO na academia. Procure a secretaria.');
+            showResult('blocked', '❌ Aluno BLOQUEADO OU INEXISTENTE na academia. Procure a secretaria.');
         }
         
     } catch (error) {
