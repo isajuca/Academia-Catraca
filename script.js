@@ -12,6 +12,8 @@ const resultArea = document.getElementById('resultArea');    // Área que mostra
 const resultContent = document.getElementById('resultContent'); // Conteúdo dentro da área de resultado
 const clearBtn = document.getElementById('clearBtn');        // Botão X para limpar o CPF
 const backspaceBtn = document.getElementById('backspaceBtn'); // Botão para apagar o último dígito
+const welcomeCard = document.getElementById('welcomeCard');   // Card de boas-vindas
+const welcomeMessage = document.getElementById('welcomeMessage'); // Mensagem no card
 
 // ============================================
 // FUNÇÃO: FORMATAR CPF
@@ -68,8 +70,9 @@ function addDigit(digit) {
         currentCPF += digit;
         // Atualiza a tela com o novo CPF formatado
         updateCPFDisplay();
-        // Esconde a área de resultado (quando digita, esconde o resultado anterior)
+        // Esconde a área de resultado e o card de boas-vindas (quando digita, esconde o resultado anterior)
         resultArea.classList.add('hidden');
+        welcomeCard.classList.add('hidden');
     }
 }
 
@@ -82,8 +85,9 @@ function removeLastDigit() {
     currentCPF = currentCPF.slice(0, -1);
     // Atualiza a tela
     updateCPFDisplay();
-    // Esconde o resultado anterior
+    // Esconde o resultado anterior e o card
     resultArea.classList.add('hidden');
+    welcomeCard.classList.add('hidden');
 }
 
 // ============================================
@@ -94,6 +98,7 @@ function clearCPF() {
     currentCPF = '';  // Zera a variável do CPF
     updateCPFDisplay(); // Atualiza a tela (campo fica vazio)
     resultArea.classList.add('hidden'); // Esconde resultado
+    welcomeCard.classList.add('hidden'); // Esconde card
 }
 
 // ============================================
@@ -172,7 +177,14 @@ async function consultStatus() {
         // Verifica o status retornado pela API
         // Se for "ativo" mostra verde, senão mostra vermelho
         if (data.status === "ativo") {
-            showResult('active', '✅ Aluno ATIVO na academia');
+            // Mostra card de boas-vindas por 5 segundos
+            welcomeMessage.textContent = `Catraca Liberada! Bem vindo(a), ${data.nome}!`;
+            welcomeCard.classList.remove('hidden');
+            // Após 5 segundos, esconde o card e mostra a mensagem padrão
+            setTimeout(() => {
+                welcomeCard.classList.add('hidden');
+                showResult('active', '✅ Aluno ATIVO na academia');
+            }, 3000);
         } else {
             showResult('blocked', '❌ Aluno BLOQUEADO OU INEXISTENTE na academia. Procure a secretaria.');
         }
