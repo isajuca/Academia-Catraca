@@ -70,5 +70,7 @@ Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](https://www.
 ## 🤝 Contato
 
 Desenvolvido por **Isa Jucá** – sinta-se à vontade para entrar em contato!
+isadora.juca.senai@gmail.com
+
 
 -----
