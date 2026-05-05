@@ -53,7 +53,7 @@ Veja o projeta na Vercel: https://academia-catraca-alpha.vercel.app/
 
 ## 🤝 Contato
 
-Desenvolvido por **Isa Jucá** – sinta-se à vontade para entrar em contato!
+Desenvolvido por **Isa Jucá** e **Rebeca Diniz** – sinta-se à vontade para entrar em contato!
 isadora.juca.senai@gmail.com
 
 
