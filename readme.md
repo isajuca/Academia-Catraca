@@ -60,6 +60,9 @@ const response = await fetch('SUA_NOVA_URL_AQUI' + cleanCPF);
 ```
 -----
 
+## Deploy na Vercel
+Veja o projeta na Vercel: https://academia-catraca-alpha.vercel.app/
+
 ## 🤝 Contato
 
 Desenvolvido por **Isa Jucá** – sinta-se à vontade para entrar em contato!
