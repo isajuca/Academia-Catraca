@@ -184,9 +184,20 @@ async function consultStatus() {
             setTimeout(() => {
                 welcomeCard.classList.add('hidden');
                 showResult('active', '✅ Aluno ATIVO na academia');
+                // Limpa o CPF para permitir adicionar outro
+                currentCPF = '';
+                updateCPFDisplay();
+                // Esconde a mensagem após 5 segundos
+                setTimeout(() => {
+                    resultArea.classList.add('hidden');
+                }, 2000);
             }, 3000);
         } else {
             showResult('blocked', '❌ Aluno BLOQUEADO OU INEXISTENTE na academia. Procure a secretaria.');
+            // Esconde a mensagem após 5 segundos
+            setTimeout(() => {
+                resultArea.classList.add('hidden');
+            }, 2000);
         }
         
     } catch (error) {
