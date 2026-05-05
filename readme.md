@@ -48,19 +48,7 @@ O **MetaFit** é uma interface de terminal de autoatendimento para academias, pe
 
 -----
 
-## 🌐 Integração com API
-
-O projeto consome um endpoint REST que espera o CPF (apenas números) e retorna um objeto JSON.
-
-
-Para alterar a URL da API, basta modificar a linha no arquivo `script.js`:
-
-```javascript
-const response = await fetch('SUA_NOVA_URL_AQUI' + cleanCPF);
-```
------
-
-## Deploy na Vercel
+## 🌐 Deploy na Vercel
 Veja o projeta na Vercel: https://academia-catraca-alpha.vercel.app/
 
 ## 🤝 Contato
